@@ -18,7 +18,7 @@
 //= require_tree .
 
 angular
-	.module('myAppName', ['ui.router'])
+	.module('vendorApp', ['ui.router'])
 	.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     	$stateProvider
       		.state('home', {
