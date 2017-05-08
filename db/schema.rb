@@ -10,10 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508192133) do
+ActiveRecord::Schema.define(version: 20170508205258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "line1"
+    t.string   "line2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id", unique: true, using: :btree
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "category_name"
+    t.string   "category_icon"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string   "company_name"
+    t.string   "company_logo"
+    t.string   "contact_name"
+    t.string   "contact_email"
+    t.string   "contact_phone"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string   "store_name"
+    t.string   "store_phone"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -34,6 +71,21 @@ ActiveRecord::Schema.define(version: 20170508192133) do
     t.string   "role"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "vendors", force: :cascade do |t|
+    t.string   "vendor_name"
+    t.string   "vendor_contact_name"
+    t.string   "vendor_contact_phone"
+    t.string   "vendor_contact_email"
+    t.string   "vendor_logo"
+    t.string   "vendor_website"
+    t.string   "info"
+    t.string   "order_window"
+    t.string   "delivery_window"
+    t.string   "attachment"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
 end

@@ -11,5 +11,7 @@ class CreateAddresses < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+
+    add_index :addresses, [:addressable_type, :addressable_id], :unique => true
   end
 end
