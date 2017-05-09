@@ -5,10 +5,15 @@ angular
     controller: HomePageController
   });
 
-HomePageController.$inject = [];
+HomePageController.$inject = [$http];
 
-function HomePageController() {
+function HomePageController($http) {
   var vm = this;
 
   vm.message = 'Hello World!';
+  vm.vendors = [];
+
+  $http.get('/api/vendors').then(function(resp) {
+  	vm.vendors = resp.data;
+  });
 }

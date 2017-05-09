@@ -4,8 +4,21 @@
   	{{ $ctrl.message }}
 </p>
 
-<div class="card-panel">
-     <span class="blue-text text-darken-2">This is a card panel with dark blue text</span>
-</div>
-
-<div class="card-panel teal lighten-2">This is a card panel with a teal lighten-2 class</div>
+<div class="row" ng-repeat="vendor in $ctrl.vendors">
+        <div class="col s12 m7">
+          <div class="card small teal">
+            <div class="card-image">
+              <img src="{{ vendor.vendor_logo }}">
+              <span class="card-title">{{ vendor.vendor_name }}</span>
+            </div>
+            <div class="card-content">
+              <p>{{ vendor.vendor_contact_name }}</p>
+              <p><a href="tel:{{ vendor.vendor_contact_phone }}" style="color: black">{{ vendor.vendor_contact_phone }}</a></p>
+            </div>
+            <div class="card-action">
+              <a href="mailto:{{ vendor.vendor_contact_email }}">Email</a>
+              <a href="{{ vendor.vendor_website }}">Website</a>
+            </div>
+          </div>
+        </div>
+      </div>
