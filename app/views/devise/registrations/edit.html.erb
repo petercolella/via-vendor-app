@@ -27,6 +27,17 @@
     <%= f.text_field :phone %>
   </div>
 
+  <div class="input-field">
+    <select>
+      <option value="" disabled selected>Choose a role</option>
+      <option value="company">Company</option>
+      <option value="store">Store</option>
+      <option value="vendor">Vendor</option>
+    </select>
+    <%= f.label :role %><br />
+    <%= f.text_field :role %>
+  </div>
+
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
