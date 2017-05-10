@@ -28,7 +28,12 @@ angular
       		.state('home', {
         		url: '/',
         		component: 'homePage'
-      		});
+      		})
+          // .state('storesIndex', {
+          //   url: '/api/stores',
+          //   component: 'stores'
+          // })
+          ;
 
     	// default fall back route
     	$urlRouterProvider.otherwise('/');

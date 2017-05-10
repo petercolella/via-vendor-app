@@ -22,9 +22,9 @@
 #   end
 Company.create(company_name: "Uncle Maddio's", company_logo: 'http://static1.squarespace.com/static/52cf5852e4b0c1274ad7d85c/t/55e1a552e4b0088b5f195ac2/1494345757564/?format=1500w', contact_name: 'Matt Andrew', contact_email: 'feedback@unclemaddios.com', contact_phone: '555-222-1313')
 
-Store.create(store_name: 'Edgewood', store_phone: '404-907-3378')
-Store.create(store_name: 'Ansley Mall', store_phone: '678-705-2106')
+Store.create(store_name: 'Edgewood', store_phone: '404-907-3378', company_id: 1)
+Store.create(store_name: 'Ansley Mall', store_phone: '678-705-2106', company_id: 1)
 
-Vendor.create(vendor_name: 'PFG/Roma', vendor_contact_name: 'Tino Amerosa', vendor_contact_phone: '404-409-9238', vendor_contact_email: 'TAmoroso@pfgc.com', vendor_logo: 'http://www.performancefoodservice.com/~/media/PFS/Images/Logos/logo-pfs.png', vendor_website: 'http://www.pfgc.com/')
-Vendor.create(vendor_name: 'Coca-Cola', vendor_contact_name: 'Scott Riley', vendor_contact_phone: '404-661-7721', vendor_contact_email: 'scriley@coca-cola.com', vendor_logo: 'https://us.coca-cola.com/content/dam/coke2016/TF-LOGO.png', vendor_website: 'https://us.coca-cola.com/')
-Vendor.create(vendor_name: 'United Beverage', vendor_contact_name: 'Sandra Foggs', vendor_contact_phone: '404-682-8061', vendor_contact_email: 'sfoggs@udiga.com', vendor_logo: 'http://udiga.com/wp-content/uploads/2013/10/logo.png', vendor_website: 'http://udiga.com/')
+Vendor.create(vendor_name: 'PFG/Roma', vendor_contact_name: 'Tino Amerosa', vendor_contact_phone: '404-409-9238', vendor_contact_email: 'TAmoroso@pfgc.com', vendor_logo: 'http://www.performancefoodservice.com/~/media/PFS/Images/Logos/logo-pfs.png', vendor_website: 'http://www.pfgc.com/', company_id: 1)
+Vendor.create(vendor_name: 'Coca-Cola', vendor_contact_name: 'Scott Riley', vendor_contact_phone: '404-661-7721', vendor_contact_email: 'scriley@coca-cola.com', vendor_logo: 'https://us.coca-cola.com/content/dam/coke2016/TF-LOGO.png', vendor_website: 'https://us.coca-cola.com/', company_id: 1)
+Vendor.create(vendor_name: 'United Beverage', vendor_contact_name: 'Sandra Foggs', vendor_contact_phone: '404-682-8061', vendor_contact_email: 'sfoggs@udiga.com', vendor_logo: 'http://udiga.com/wp-content/uploads/2013/10/logo.png', vendor_website: 'http://udiga.com/', company_id: 1)

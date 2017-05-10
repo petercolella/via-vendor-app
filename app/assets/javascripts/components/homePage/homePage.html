@@ -1,24 +1,24 @@
-<!-- <h1>Home Page</h1> -->
+<h1>Home Page</h1>
 
-<!-- <p>
+<p>
   	{{ $ctrl.message }}
-</p> -->
+</p>
 
-<div class="row" ng-repeat="vendor in $ctrl.vendors">
-        <div class="col s12 m7">
-          <div class="card">
-            <div class="card-image">
-              <img src="{{ vendor.vendor_logo }}" style="height: 150px; width: auto; margin: auto; background-color: black">
-              <span class="card-title" style="color: orange">{{ vendor.vendor_name }}</span>
-            </div>
-            <div class="card-content">
-              <p>{{ vendor.vendor_contact_name }}</p>
-              <p><a href="tel:{{ vendor.vendor_contact_phone }}" style="color: black">{{ vendor.vendor_contact_phone }}</a></p>
-            </div>
-            <div class="card-action">
-              <a href="mailto:{{ vendor.vendor_contact_email }}">Email</a>
-              <a href="{{ vendor.vendor_website }}">Website</a>
-            </div>
-          </div>
-        </div>
+<div class="row" ng-repeat="vendor in $ctrl.vendors track by $index">
+  <div class="col s12 m7">
+    <div class="card">
+      <div class="card-image">
+          <img src="{{ vendor.vendor_logo }}" style="height: 150px; width: auto; margin: auto; background-color: black">
+          <span class="card-title" style="color: orange">{{ vendor.vendor_name }}</span>
       </div>
+      <div class="card-content">
+        <p>{{ vendor.vendor_contact_name }}</p>
+        <p><a href="tel:{{ vendor.vendor_contact_phone }}" style="color: black">{{ vendor.vendor_contact_phone }}</a></p>
+      </div>
+      <div class="card-action">
+        <a href="mailto:{{ vendor.vendor_contact_email }}">Email</a>
+        <a href="{{ vendor.vendor_website }}">Website</a>
+      </div>
+    </div>
+  </div>
+</div>

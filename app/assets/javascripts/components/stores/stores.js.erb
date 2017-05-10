@@ -1,0 +1,21 @@
+angular
+  .module('vendorApp')
+  .component('stores', {
+    templateUrl: '<%= asset_path("components/stores/stores") %>',
+    controller: StoresController
+  });
+
+StoresController.$inject = ['$http'];
+
+function StoresController($http) {
+console.log('where')
+
+  var vm = this;
+
+  vm.stores = [];
+
+  $http.get('/api/companies/' + id + '/stores').then(function(resp) {
+    console.log('what')
+  	vm.stores = resp.data;
+  });
+}
