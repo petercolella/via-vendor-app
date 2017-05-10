@@ -6,10 +6,10 @@
 
 <div class="row" ng-repeat="vendor in $ctrl.vendors">
         <div class="col s12 m7">
-          <div class="card small teal">
+          <div class="card">
             <div class="card-image">
-              <img src="{{ vendor.vendor_logo }}">
-              <span class="card-title">{{ vendor.vendor_name }}</span>
+              <img src="{{ vendor.vendor_logo }}" style="height: 150px; width: auto; margin: auto; background-color: black">
+              <span class="card-title" style="color: orange">{{ vendor.vendor_name }}</span>
             </div>
             <div class="card-content">
               <p>{{ vendor.vendor_contact_name }}</p>
