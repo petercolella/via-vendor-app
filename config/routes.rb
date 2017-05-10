@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   	namespace :api do
-  		resources :vendors, only: [:index]
+  		# resources :vendors, only: [:index]
+  		resources :companies, shallow: true do
+  			resources :stores
+  			resources :vendors
+  		end 
   	end
 
   	root to: 'client#index'
