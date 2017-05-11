@@ -1,0 +1,36 @@
+<%= form_for [@company, @store] do |f| %>
+  <% if store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(store.errors.count, "error") %> prohibited this store from being saved:</h2>
+
+      <ul>
+      <% store.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :store_name %>
+    <%= f.text_field :store_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :store_phone %>
+    <%= f.text_field :store_phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_id %>
+    <%= f.number_field :company_id %>
+  </div>
+
+  <% f.fields_for :address do |address| %>
+    <%= render :partial => 'shared/address', :locals => {:f => address} %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

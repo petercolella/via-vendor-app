@@ -35,7 +35,7 @@
   <% end %>
   <% if alert %>
     <script type="text/javascript">
-      Materialize.toast('<%= alert %>', 2000, 'green lighten-1')
+      Materialize.toast('<%= alert %>', 8000, 'red lighten-1')
     </script>
   <% end %>
 
@@ -47,6 +47,11 @@
     $(document).ready(function() {
       $('select').material_select();
     });
+    $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+    });
     </script>
+
   </body>
 </html>
