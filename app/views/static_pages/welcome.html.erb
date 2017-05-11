@@ -1,2 +1,26 @@
-<h1>Welcome to Via</h1>
-<p>(Vendor Information Assistant)</p>
+<div class="container">
+	<div class="card-panel hoverable">
+		<h1 class="center-align">Welcome to V.i.A</h1>
+		<div class="divider"></div>
+		<blockquote>
+			<h3 class="center-align">Vendor Information Application</h3>
+		</blockquote>
+	</div>
+</div>
+
+<div class="container">
+<% if current_user.present? %>
+	<div class="card-panel hoverable">
+	
+		<p>Somebody logged in!</p>
+		<p>View our <%= link_to "Companies", companies_path %></p>
+
+	</div>
+<% else %>
+	<div class="card-panel hoverable">
+	
+		<p>Please log in!</p>
+
+	</div>
+<% end %>
+</div>

@@ -21,26 +21,21 @@
 //= require_self
 //= require_tree .
 
-angular
-	.module('vendorApp', ['ui.router'])
-	.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-    	$stateProvider
-      		.state('home', {
-        		url: '/',
-        		component: 'homePage'
-      		})
-          // .state('storesIndex', {
-          //   url: '/api/stores',
-          //   component: 'stores'
-          // })
-          ;
+// angular
+// 	.module('vendorApp', ['ui.router'])
+// 	.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+//     	$stateProvider
+//       		.state('home', {
+//         		url: '/',
+//         		component: 'homePage'
+//       		});
 
-    	// default fall back route
-    	$urlRouterProvider.otherwise('/');
+//     	// default fall back route
+//     	$urlRouterProvider.otherwise('/');
 
-    	// enable HTML5 Mode for SEO
-    	$locationProvider.html5Mode({
-      		enabled: true,
-      		requireBase: false
-    	});
-  	});
+//     	// enable HTML5 Mode for SEO
+//     	$locationProvider.html5Mode({
+//       		enabled: true,
+//       		requireBase: false
+//     	});
+//   	});

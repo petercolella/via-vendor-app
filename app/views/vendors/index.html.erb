@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col s12 m7">
+  <% @vendors.each do |vendor| %>
+    <div class="card hoverable">
+      <div class="card-image">
+          <img src="<%= vendor.vendor_logo %>" style="height: 150px; width: auto; max-width: 300px; margin: auto">
+          <span class="card-title" style="color: orange"><%= vendor.vendor_name %></span>
+      </div>
+      <div class="card-content">
+        <p><%= vendor.vendor_contact_name %></p>
+        <p><a href="tel:<%= vendor.vendor_contact_phone %>" style="color: black"><%= vendor.vendor_contact_phone %></a></p>
+      </div>
+      <div class="card-action">
+        <a href="mailto:<%= vendor.vendor_contact_email %>">Email</a>
+        <a href="<%= vendor.vendor_website %>">Website</a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

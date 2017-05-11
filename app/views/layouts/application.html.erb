@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VendorApp</title>
+    <title>V.i.A</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -14,19 +14,30 @@
 
   <body>
     <nav class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
+      <a href="<%= root_path %>" class="brand-logo" style="padding-left: 1em">V.i.A</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if user_signed_in? %>
-        <li>Logged in as <strong><%= current_user.email %></strong>.</li>
+        <li>Logged in as <strong><%= current_user.first_name + ' ' + current_user.last_name %></strong>.</li>
         <li><%= link_to 'Home', root_path %></li>
         <li><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
         <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
+      <% else %>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Sign in', new_user_session_path %></li>
       <% end %>
       </ul>
     </nav>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <% if notice %>
+    <script type="text/javascript">
+      Materialize.toast('<%= notice %>', 2000, 'green lighten-1')
+    </script>
+  <% end %>
+  <% if alert %>
+    <script type="text/javascript">
+      Materialize.toast('<%= alert %>', 2000, 'green lighten-1')
+    </script>
+  <% end %>
 
     <%= yield %>
 

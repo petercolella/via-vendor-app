@@ -1,0 +1,23 @@
+<h1>Companies</h1>
+
+<div class="row">
+  <div class="col s12 m7">
+  <% @companies.each do |company| %>
+    <div class="card hoverable">
+      <div class="card-image">
+          <img src="<%= company.company_logo %>" style="height: 150px; width: auto; max-width: 300px; margin: auto">
+          <span class="card-title" style="color: orange"><%= company.company_name %></span>
+      </div>
+      <div class="card-content">
+        <p>Contact: <%= company.contact_name %></p>
+        <p><a href="tel:<%= company.contact_phone %>" style="color: black">Click to call: <%= company.contact_phone %></a></p>
+      </div>
+      <div class="card-action">
+        <a href="mailto:<%= company.contact_email %>">Email</a>
+        <a href="<%= company_stores_path(company) %>">Store List</a>
+        <a href="<%= company_vendors_path(company) %>">Vendor List</a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
