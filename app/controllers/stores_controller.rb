@@ -1,6 +1,6 @@
 class StoresController < ApplicationController
 
-  before_filter :load_parent
+  before_filter :load_company
 
   def index
     @company = Company.find(params[:company_id])
@@ -62,7 +62,7 @@ class StoresController < ApplicationController
   end
 
   private
-    def load_parent
+    def load_company
       @company = Company.find(params[:company_id])
     end
 
