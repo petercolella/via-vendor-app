@@ -6,5 +6,5 @@ class Store < ApplicationRecord
  	belongs_to :company
 
  	has_many :vendors
- 	has_many :categories
+ 	# has_many :categories
 end

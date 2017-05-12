@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
-	belongs_to :company
-	belongs_to :store
+	# belongs_to :company
+	# belongs_to :store
 
-	has_many :vendors
+	# has_many :vendors
 end
