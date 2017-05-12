@@ -13,8 +13,13 @@
       <div class="card-action">
         <a href="mailto:<%= vendor.vendor_contact_email %>">Email</a>
         <a href="<%= vendor.vendor_website %>">Website</a>
+        <a href="vendors/<%= vendor.id %>">Show</a>
+        <a href="vendors/<%= vendor.id %>/edit">Edit</a>
+        <td><%= link_to 'Destroy', company_vendor_path(@company, @vendor), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </div>
     </div>
     <% end %>
   </div>
 </div>
+
+<%= link_to 'New Vendor', new_company_vendor_path %>

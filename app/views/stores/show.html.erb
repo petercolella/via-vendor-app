@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Store name:</strong>
@@ -15,5 +15,10 @@
   <%= @store.company_id %>
 </p>
 
-<%= link_to 'Edit', edit_store_path(@store) %> |
+<p>
+  <strong>Address 1:</strong>
+  <%= @store.address %>
+</p>
+
+<%= link_to 'Edit', edit_company_store_path(@company, @store) %> |
 <%= link_to 'Back', company_stores_path(@store.company) %>

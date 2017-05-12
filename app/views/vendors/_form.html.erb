@@ -1,0 +1,77 @@
+<%= form_for([@company, @vendor]) do |f| %>
+  <% if vendor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vendor.errors.count, "error") %> prohibited this vendor from being saved:</h2>
+
+      <ul>
+      <% vendor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :vendor_name %>
+    <%= f.text_field :vendor_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vendor_contact_name %>
+    <%= f.text_field :vendor_contact_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vendor_contact_phone %>
+    <%= f.text_field :vendor_contact_phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vendor_contact_email %>
+    <%= f.text_field :vendor_contact_email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vendor_logo %>
+    <%= f.text_field :vendor_logo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vendor_website %>
+    <%= f.text_field :vendor_website %>
+  </div>
+
+  <div class="field">
+    <%= f.label :info %>
+    <%= f.text_field :info %>
+  </div>
+
+  <div class="field">
+    <%= f.label :order_window %>
+    <%= f.text_field :order_window %>
+  </div>
+
+  <div class="field">
+    <%= f.label :delivery_window %>
+    <%= f.text_field :delivery_window %>
+  </div>
+
+  <div class="field">
+    <%= f.label :attachment %>
+    <%= f.text_field :attachment %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_id %>
+    <%= f.number_field :company_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :store_id %>
+    <%= f.number_field :store_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,10 +1,15 @@
 class StoresController < ApplicationController
+
+  before_filter :load_parent
+
   def index
-    @stores = Store.all
+    @company = Company.find(params[:company_id])
+    @stores = @company.stores.all
   end
 
   def show
-    @store = Store.find(params[:id])
+    @store = @company.stores.find(params[:id])
+    @company = @store.company
   end
 
   def new
@@ -14,16 +19,17 @@ class StoresController < ApplicationController
   end
 
   def edit
-    @store = Store.find(params[:id])
+    @company = Company.find(params[:company_id])
+    @store = @company.stores.find(params[:id])
   end
 
   def create
-    @store = Store.new(store_params)
+    @store = @company.stores.new(store_params)
     @company = @store.company
 
     respond_to do |format|
       if @store.save
-        format.html { redirect_to @store, notice: 'Store was successfully created.' }
+        format.html { redirect_to [@company, @store], notice: 'Store was successfully created.' }
         format.json { render :show, status: :created, location: @store }
       else
         format.html { render :new }
@@ -33,9 +39,10 @@ class StoresController < ApplicationController
   end
 
   def update
+    @store = @company.stores.find(params[:id])
     respond_to do |format|
       if @store.update(store_params)
-        format.html { redirect_to @store, notice: 'Store was successfully updated.' }
+        format.html { redirect_to [@company, @store], notice: 'Store was successfully updated.' }
         format.json { render :show, status: :ok, location: @store }
       else
         format.html { render :edit }
@@ -45,20 +52,25 @@ class StoresController < ApplicationController
   end
 
   def destroy
-    store = Store.find(params[:id])
-    store.destroy
+    @store = @company.stores.find(params[:id])
+    company = store.company
+    @store.destroy
     respond_to do |format|
-      format.html { redirect_to company_stores_path(store), notice: 'Store was successfully destroyed.' }
+      format.html { redirect_to company_stores_path(@company), notice: 'Store was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+    def load_parent
+      @company = Company.find(params[:company_id])
+    end
+
     def set_store
       @store = Store.find(params[:id])
     end
 
     def store_params
-      params.require(:store).permit(:store_name, :store_phone, :company_id)
+      params.require(:store).permit(:store_name, :store_phone, :company_id, :addressable)
     end
 end

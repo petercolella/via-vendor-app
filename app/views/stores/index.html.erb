@@ -17,8 +17,6 @@
   </div>
 </div>
 
-<p id="notice"><%= notice %></p>
-
 <h1>Stores</h1>
 
 <table>
@@ -37,9 +35,9 @@
         <td><%= store.store_name %></td>
         <td><%= store.store_phone %></td>
         <td><%= store.company_id %></td>
-        <td><%= link_to 'Show', store %></td>
-        <td><%= link_to 'Edit', edit_store_path(store) %></td>
-        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', company_store_path(@company, store) %></td>
+        <td><%= link_to 'Edit', edit_company_store_path(@company, store) %></td>
+        <td><%= link_to 'Destroy', [@company, store], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
