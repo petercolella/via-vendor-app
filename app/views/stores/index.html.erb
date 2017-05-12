@@ -1,3 +1,4 @@
+<div style="margin: 50px">
 <h1>Stores</h1>
 
 <div class="row">
@@ -8,16 +9,20 @@
       <div class="card-content">
         <p>Store: <%= store.store_name %></p>
         <p>Phone: <%= store.store_phone %></p>
+        <p>Company ID: <%= store.company_id %></p>
       </div>
       <div class="card-action">
         <a href="<%= company_vendors_path %>">Vendors</a>
+        <td><%= link_to 'Show', company_store_path(@company, store) %></td>
+        <td><%= link_to 'Edit', edit_company_store_path(@company, store) %></td>
+        <td><%= link_to 'Destroy', [@company, store], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </div>
     </div>
     <% end %>
   </div>
 </div>
 
-<h1>Stores</h1>
+<!-- <h1>Stores</h1>
 
 <table>
   <thead>
@@ -41,8 +46,11 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
 
 <br>
 
-<%= link_to 'New Store', new_company_store_path %>
+<%= button_to 'New Store', new_company_store_path, :method => :get %>
+<br>
+<%= button_to 'Back', companies_path, :method => :get %>
+</div> 

@@ -1,4 +1,4 @@
-
+<div style="margin: 50px">
 
 <p>
   <strong>Vendor name:</strong>
@@ -60,5 +60,7 @@
   <%= @vendor.store_id %>
 </p>
 
-<%= link_to 'Edit', edit_company_vendor_path(@company, @vendor) %> |
-<%= link_to 'Back', company_vendors_path(@vendor.company) %>
+<%= button_to 'Edit', edit_company_vendor_path(@company, @vendor), :method => :get %>
+<br>
+<%= button_to 'Back', company_vendors_path(@vendor.company), :method => :get %>
+</div>

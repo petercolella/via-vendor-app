@@ -1,6 +1,11 @@
+<div style="margin: 50px">
+
 <h1>Editing Vendor</h1>
 
 <%= render 'form', vendor: @vendor %>
 
+<br>
 <%= link_to 'Show', company_vendor_path(@company, @vendor) %> |
 <%= link_to 'Back', company_vendors_path(@company) %>
+
+</div>
