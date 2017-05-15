@@ -14,13 +14,15 @@ We wanted to reintroduce our users to the storied world of mixology. In doing so
 
 ## Wireframes
 
-Splash Page
+![Wireframes](/wireframes/project-4.pdf)
 
-![Splash Page](/wireframes/splash-page.png)
+* Splash Page
 
-Sign In
+  ![Splash Page](/wireframes/splash-page.png)
 
-![Sign In](/wireframes/sign-in.png)
+* Sign In
+
+  ![Sign In](/wireframes/sign-in.png)
 
 ## ERD
 
