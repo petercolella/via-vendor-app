@@ -5,5 +5,5 @@ class Vendor < ApplicationRecord
 	# belongs_to :user
 	# belongs_to :store
 	# belongs_to :category
-	# belongs_to :company
+	belongs_to :company
 end
