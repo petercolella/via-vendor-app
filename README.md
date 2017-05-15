@@ -14,11 +14,10 @@ We wanted to reintroduce our users to the storied world of mixology. In doing so
 
 ## Wireframes
 
-![Splash Page](/wireframes/splash-page.png)
-![SIGNUP_EDIT USER](/mockup/SIGNUP_EDIT-USER.png)
-![LOGIN](/mockup/LOGIN.png)
-![SHOW PAGE](/mockup/SHOW-PAGE.png)
-![UPLOAD_EDIT POST](/mockup/UPLOAD_EDIT-POST.png)
+* Splash Page
+  ![Splash Page](/wireframes/splash-page.png)
+* Sign In
+  ![Sign In](/wireframes/sign-in.png)
 
 ## ERD
 
