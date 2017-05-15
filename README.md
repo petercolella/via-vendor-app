@@ -14,7 +14,7 @@ We wanted to reintroduce our users to the storied world of mixology. In doing so
 
 ## Wireframes
 
-![Wireframes](/wireframes/project-4.pdf)
+[Wireframes](/wireframes/project-4.pdf)
 
 * Splash Page
 
