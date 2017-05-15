@@ -1,5 +1,5 @@
 class Company < ApplicationRecord
-	belongs_to :user
+	# belongs_to :user
 
 	has_many :stores, dependent: :destroy
 	has_many :vendors
