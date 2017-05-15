@@ -1,6 +1,6 @@
 <div style="margin: 50px">
 
-<p>
+<!-- <p>
   <strong>Store name:</strong>
   <%= @store.store_name %>
 </p>
@@ -13,13 +13,11 @@
 <p>
   <strong>Company:</strong>
   <%= @store.company_id %>
-</p>
+</p> -->
 
-<%= form_for([@company, @store]) do |f| %>
-<%= f.fields_for :address do |address| %>
-    <%= render :partial => 'shared/address', :locals => {:f => address} %>
-<% end %>
-<% end %>
+<%= render 'form', store: @store %>
+
+
 
 <%= button_to 'Edit', edit_company_store_path(@company, @store), :method => :get %>
 <br>

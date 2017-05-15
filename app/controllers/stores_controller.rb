@@ -10,6 +10,7 @@ class StoresController < ApplicationController
   def show
     @store = @company.stores.find(params[:id])
     @company = @store.company
+    @store.address
   end
 
   def new
@@ -21,11 +22,13 @@ class StoresController < ApplicationController
   def edit
     @company = Company.find(params[:company_id])
     @store = @company.stores.find(params[:id])
+    @store.address
   end
 
   def create
     @store = @company.stores.new(store_params)
     @company = @store.company
+    @store.address
 
     respond_to do |format|
       if @store.save
@@ -40,6 +43,7 @@ class StoresController < ApplicationController
 
   def update
     @store = @company.stores.find(params[:id])
+
     respond_to do |format|
       if @store.update(store_params)
         format.html { redirect_to [@company, @store], notice: 'Store was successfully updated.' }
