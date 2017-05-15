@@ -13,20 +13,22 @@
   </head>
 
   <body>
-    <nav class="nav-wrapper">
-      <a href="<%= root_path %>" class="brand-logo" style="padding-left: 1em">V.i.A</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <% if user_signed_in? %>
-        <li>Logged in as <strong><%= current_user.first_name + ' ' + current_user.last_name %></strong>.</li>
-        <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
-        <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
-      <% else %>
-        <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to 'Sign in', new_user_session_path %></li>
-      <% end %>
-      </ul>
-    </nav>
+    <div class="navbar-fixed">
+      <nav class="nav-wrapper teal lighten-2">
+        <a href="<%= root_path %>" class="brand-logo" style="padding-left: 1em">V.i.A</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+          <li>Logged in as <strong><%= current_user.first_name + ' ' + current_user.last_name %></strong>.</li>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
+          <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
+        <% else %>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Sign in', new_user_session_path %></li>
+        <% end %>
+        </ul>
+      </nav>
+    </div>
 
   <% if notice %>
     <script type="text/javascript">
@@ -35,11 +37,38 @@
   <% end %>
   <% if alert %>
     <script type="text/javascript">
-      Materialize.toast('<%= alert %>', 8000, 'red lighten-1')
+      Materialize.toast('<%= alert %>', 4000, 'red lighten-1')
     </script>
   <% end %>
 
     <%= yield %>
+
+    <footer class="page-footer teal lighten-2">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Why V.i.A?</h5>
+                <p class="grey-text text-lighten-4">Our app allows your employees to always have all of their current resources right at their fingertips!</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Connect</h5>
+                <ul style="display: inline-flex;">
+                  <li><a class="grey-text text-lighten-3" href="https://github.com/petercolella"><i class="fa fa-github" style="font-size: 2em"></i></a></li>
+                  <span></span>
+                  <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/peter-colella/"><i class="fa fa-linkedin" style="font-size: 2em"></i></a></li>
+                  <span></span>
+                  <li><a class="grey-text text-lighten-3" href="https://twitter.com/_PeterColella"><i class="fa fa-twitter" style="font-size: 2em"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2017 Peter Colella
+            <a class="grey-text text-lighten-4 right" href="https://www.petercolella.com/"><i class="material-icons" style="font-size: 2em">web</i></a>
+            </div>
+          </div>
+        </footer>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>

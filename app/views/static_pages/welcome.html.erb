@@ -1,27 +1,27 @@
 <div class="container">
 	<div class="card-panel hoverable">
-		<blockquote>
+		
 		<h1 class="center-align">Welcome to V.i.A</h1>
-		</blockquote>
+		
 		<div class="divider"></div>
-		<blockquote>
+		
 			<h3 class="center-align">Vendor Information Application</h3>
-		</blockquote>
+		
 	</div>
 </div>
 
 <div class="container">
-<div class="card-panel hoverable">
-<div class="card-content blue-text">
-	<% if current_user.present? %>
-	<blockquote>
-			<h3 class="center-align"><%= link_to "Click here to view our Companies", companies_path %></h3>	
-	</blockquote>
-	<% else %>
-	<blockquote>
-			<h3 class="center-align">Please sign in!</h3>	
-	</blockquote>
-	<% end %>
-</div>
-</div>
+	<div class="card-panel hoverable">
+		<div class="card-content blue-text">
+			<% if current_user %>
+			
+					<h3 class="center-align"><%= link_to "Click here to view our Companies", companies_path %></h3>	
+			
+			<% else %>
+			<blockquote>
+					<h3 class="center-align"><%= link_to "Please sign in!", new_user_session_path %></h3>	
+			</blockquote>
+			<% end %>
+		</div>
+	</div>
 </div>
