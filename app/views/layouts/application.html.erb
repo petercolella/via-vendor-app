@@ -1,90 +1,91 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>V.i.A</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>V.i.A</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  </head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
 
-  <body>
-    <div class="navbar-fixed">
-      <nav class="nav-wrapper teal lighten-2">
-        <a href="<%= root_path %>" class="brand-logo" style="padding-left: 1em">V.i.A</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <% if user_signed_in? %>
-          <li>Logged in as <strong><%= current_user.first_name + ' ' + current_user.last_name %></strong>.</li>
-          <li><%= link_to 'Home', root_path %></li>
-          <li><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
-          <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
-        <% else %>
-          <li><%= link_to 'Home', root_path %></li>
-          <li><%= link_to 'Sign in', new_user_session_path %></li>
-        <% end %>
+<body>
+  <div class="navbar-fixed">
+    <nav class="nav-wrapper teal lighten-2">
+      <a href="<%= root_path %>" class="brand-logo" style="padding-left: 1em">V.i.A</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if user_signed_in? %>
+        <li>Logged in as <strong><%= current_user.first_name + ' ' + current_user.last_name %></strong>.</li>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
+      <% else %>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Sign in', new_user_session_path %></li>
+      <% end %>
+      </ul>
+    </nav>
+  </div>
+<main>
+<% if notice %>
+  <script type="text/javascript">
+    Materialize.toast('<%= notice %>', 2000, 'green lighten-1')
+  </script>
+<% end %>
+<% if alert %>
+  <script type="text/javascript">
+    Materialize.toast('<%= alert %>', 4000, 'red lighten-1')
+  </script>
+<% end %>
+
+  <%= yield %>
+
+</main>
+<footer class="page-footer teal lighten-2">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Why V.i.A?</h5>
+        <p class="grey-text text-lighten-4">Our app allows your employees to always have all of their current resources right at their fingertips!</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul style="display: inline-flex;">
+          <li><a class="grey-text text-lighten-3" href="https://github.com/petercolella"><i class="fa fa-github" style="font-size: 2em"></i></a></li>
+          <span></span>
+          <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/peter-colella/"><i class="fa fa-linkedin" style="font-size: 2em"></i></a></li>
+          <span></span>
+          <li><a class="grey-text text-lighten-3" href="https://twitter.com/_PeterColella"><i class="fa fa-twitter" style="font-size: 2em"></i></a></li>
         </ul>
-      </nav>
+      </div>
     </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2017 Peter Colella
+    <a class="grey-text text-lighten-4 right" href="https://www.petercolella.com/"><i class="fa fa-desktop" style="font-size: 2em"></i></a>
+    </div>
+  </div>
+</footer>
 
-  <% if notice %>
-    <script type="text/javascript">
-      Materialize.toast('<%= notice %>', 2000, 'green lighten-1')
-    </script>
-  <% end %>
-  <% if alert %>
-    <script type="text/javascript">
-      Materialize.toast('<%= alert %>', 4000, 'red lighten-1')
-    </script>
-  <% end %>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('select').material_select();
+});
+$(document).ready(function(){
+// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+$('.modal').modal();
+});
+$(document).ready(function(){
+  $('.parallax').parallax();
+});
+</script>
 
-    <%= yield %>
-
-    <footer class="page-footer teal lighten-2">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Why V.i.A?</h5>
-                <p class="grey-text text-lighten-4">Our app allows your employees to always have all of their current resources right at their fingertips!</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Connect</h5>
-                <ul style="display: inline-flex;">
-                  <li><a class="grey-text text-lighten-3" href="https://github.com/petercolella"><i class="fa fa-github" style="font-size: 2em"></i></a></li>
-                  <span></span>
-                  <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/peter-colella/"><i class="fa fa-linkedin" style="font-size: 2em"></i></a></li>
-                  <span></span>
-                  <li><a class="grey-text text-lighten-3" href="https://twitter.com/_PeterColella"><i class="fa fa-twitter" style="font-size: 2em"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2017 Peter Colella
-            <a class="grey-text text-lighten-4 right" href="https://www.petercolella.com/"><i class="fa fa-desktop" style="font-size: 2em"></i></a>
-            </div>
-          </div>
-        </footer>
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-    <script>
-    $(document).ready(function() {
-      $('select').material_select();
-    });
-    $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal').modal();
-    });
-    $(document).ready(function(){
-      $('.parallax').parallax();
-    });
-    </script>
-
-  </body>
+</body>
 </html>
