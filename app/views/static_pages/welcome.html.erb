@@ -2,24 +2,29 @@
       <div class="parallax"><img src="/assets/kitchen.jpg"></div>
 </div>
 
-<div class="container">
-	<div class="card-panel hoverable grey lighten-3">		
-		<h2 class="center-align">Welcome to V.i.A</h2>		
-		<div class="divider"></div>		
+<div class="section white">
+    <div class="row container">		
+		<h2 class="center-align">Welcome to V.i.A</h2>	
 		<h4 class="center-align">The Vendor Information Application</h4>		
 	</div>
 </div>
 
-<div class="container">
-	<div class="card-panel hoverable grey lighten-3">
-		<div class="card-content blue-text">
-			<% if current_user %>			
-					<h5 class="center-align"><%= link_to "Click here to view our Companies", companies_path %></h5>
-			<% else %>
-			<blockquote>
-					<h5 class="center-align"><%= link_to "Please sign in!", new_user_session_path %></h5>	
-			</blockquote>
-			<% end %>
-		</div>
+<div class="parallax-container">
+      <div class="parallax"><img src="/assets/tablet.png"></div>
+</div>
+
+<div class="section white">
+    <div class="row container">
+		<% if current_user %>			
+				<h2 class="center-align">Nice to Have You Back</h2>
+				<h4 class="center-align"><%= link_to "Click here to view our Companies...", companies_path %></h4>
+		<% else %>
+				<h2 class="center-align">Nice to Meet You</h2>
+				<h4 class="center-align"><%= link_to "Please sign in to continue...", new_user_session_path %></h4>	
+		<% end %>
 	</div>
+</div>
+
+<div class="parallax-container">
+      <div class="parallax"><img src="/assets/produce.jpg"></div>
 </div>

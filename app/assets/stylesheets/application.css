@@ -45,3 +45,6 @@ span {
 .fa-twitter:hover {
     background-color: #00aced;
 }
+.parallax-container {
+      height: 500px;
+}
