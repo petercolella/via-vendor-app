@@ -4,16 +4,23 @@
   <% @vendors.each do |vendor| %>
     <div class="card hoverable">
       <div class="card-image">
-          <img src="<%= vendor.vendor_logo %>" style="height: 150px; width: auto; max-width: 350px; margin: auto">
-          <span class="card-title" style="color: orange"><%= vendor.vendor_name %></span>
+          <img src="<%= vendor.vendor_logo %>" style="max-height: 150px; width: auto; max-width: 100%; margin: auto">
       </div>
       <div class="card-content">
-        <p><%= vendor.vendor_contact_name %></p>
-        <p><a href="tel:<%= vendor.vendor_contact_phone %>" style="color: black"><%= vendor.vendor_contact_phone %></a></p>
+        <span class="card-title"><%= vendor.vendor_name %></span>
       </div>
+      <div class="card-content">
+            <div class="valign-wrapper">
+              <p><%= vendor.vendor_contact_name %></p>
+              <span>  </span>
+              <p><a href="tel:<%= vendor.vendor_contact_phone %>"><i class="medium material-icons">contact_phone</i></a></p>
+              <span>  </span>
+              <p><a href="mailto:<%= vendor.vendor_contact_email %>"><i class="medium material-icons">contact_mail</i></a></p>
+              <span>  </span>
+              <p><a target="_blank" href="<%= vendor.vendor_website %>"><i class="medium material-icons">computer</i></a></p>
+            </div>
+          </div>
       <div class="card-action">
-        <a href="mailto:<%= vendor.vendor_contact_email %>">Email</a>
-        <a href="<%= vendor.vendor_website %>">Website</a>
         <td><%= link_to 'Show', company_vendor_path(@company, vendor) %></td>
         <td><%= link_to 'Edit', edit_company_vendor_path(@company, vendor) %></td>
         <td><%= link_to 'Destroy', [@company, vendor], method: :delete, data: { confirm: 'Are you sure?' } %></td>
