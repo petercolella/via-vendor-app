@@ -14,22 +14,38 @@
 </head>
 
 <body>
+<header>
   <div class="navbar-fixed">
-    <nav class="nav-wrapper teal lighten-2">
-      <a href="<%= root_path %>" class="brand-logo" style="padding-left: 1em">V.i.A</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <% if user_signed_in? %>
-        <li>Logged in as <strong><%= current_user.first_name + ' ' + current_user.last_name %></strong>.</li>
-        <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
-        <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
-      <% else %>
-        <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to 'Sign in', new_user_session_path %></li>
-      <% end %>
-      </ul>
+    <nav>
+      <div class="nav-wrapper teal lighten-2">
+        <a href="<%= root_path %>" class="brand-logo" style="padding-left: 1em">V.i.A</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+          <li>Logged in as <strong><%= current_user.first_name + ' ' + current_user.last_name %></strong>.</li>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
+          <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
+        <% else %>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Sign in', new_user_session_path %></li>
+        <% end %>
+        </ul>        
+      </div>
     </nav>
   </div>
+  <ul class="side-nav" id="mobile-demo">
+    <% if user_signed_in? %>
+      <li>Logged in as <strong><%= current_user.first_name + ' ' + current_user.last_name %></strong>.</li>
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'Edit account', edit_user_registration_path, target: '_self' %></li>
+      <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', target: '_self' %></li>
+    <% else %>
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'Sign in', new_user_session_path %></li>
+    <% end %>
+  </ul>
+</header>
 <main>
 <% if notice %>
   <script type="text/javascript">
@@ -75,15 +91,11 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 <script>
-$(document).ready(function() {
-  $('select').material_select();
-});
-$(document).ready(function(){
-// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-$('.modal').modal();
-});
-$(document).ready(function(){
+$(document).ready(function() { 
+  $(".button-collapse").sideNav();
   $('.parallax').parallax();
+  $('.modal').modal();  
+  $('select').material_select();
 });
 </script>
 
