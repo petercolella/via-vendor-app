@@ -1,26 +1,32 @@
 <div style="margin: 50px">
-<h1 class="page-title">Companies</h1>
-
-<div class="row">
-  <div class="col s12 m7">
-  <% @companies.each do |company| %>
-    <div class="card hoverable">
-      <div class="card-image">
-          <img src="<%= company.company_logo %>" style="height: 150px; width: auto; max-width: 300px; margin: auto">
-          <span class="card-title" style="color: orange"><%= company.company_name %></span>
-      </div>
-      <div class="card-content">
-        <p>Contact: <%= company.contact_name %></p>
-        <p><a href="tel:<%= company.contact_phone %>" style="color: black">Click to call: <%= company.contact_phone %></a></p>
-      </div>
-      <div class="card-action">
-        <a href="mailto:<%= company.contact_email %>">Email</a>
-        <a href="<%= company_stores_path(company) %>">Store List</a>
-        <a href="<%= company_vendors_path(company) %>">Vendor List</a>
+  <h1 class="page-title center">Companies</h1>
+  <div class="row">
+    <div class="col s12">
+      <% @companies.each do |company| %>
+      <div class="hoverable">
+        <div class="card">
+          <div class="card-image">
+              <img src="<%= company.company_logo %>" style="height: 150px; width: auto; max-width: 300px; margin: auto">
+          </div>
+          <div class="card-content center">
+            <span class="card-title"><%= company.company_name %></span>
+          </div>
+          <div class="card-content">
+            <div class="valign-wrapper">
+              <p>Contact: <%= company.contact_name %></p>
+              <span>  </span>
+              <p><a href="tel:<%= company.contact_phone %>" style="color: black"><i class="material-icons">contact_phone</i></a></p>
+              <span>  </span>
+              <p><a href="mailto:<%= company.contact_email %>"><i class="material-icons">contact_mail</i></a></p>
+            </div>
+          </div>
+          <div class="card-action">
+            <a href="<%= company_stores_path(company) %>">Stores</a>
+            <a href="<%= company_vendors_path(company) %>">Vendors</a>
+          </div>
+        </div>
+        <% end %>
       </div>
     </div>
-    <% end %>
   </div>
 </div>
-</div>
-
