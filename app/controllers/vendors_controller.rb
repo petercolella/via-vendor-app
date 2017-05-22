@@ -11,6 +11,7 @@ class VendorsController < ApplicationController
   def show
     @vendor = @company.vendors.find(params[:id])
     @company = @vendor.company
+    @vendor.address
   end
 
   def new

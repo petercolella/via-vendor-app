@@ -60,9 +60,9 @@
   <%= @vendor.store_id %>
 </p>
 
-<%= link_to 'Edit', edit_company_vendor_path(@company, @vendor), :method => :get %> | 
-<%= link_to 'Delete', [@company, @vendor], method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= button_to 'Edit', edit_company_vendor_path(@company, @vendor), :method => :get %>
 <br>
+<%= button_to 'Delete', [@company, @vendor], method: :delete, data: { confirm: 'Are you sure?' } %>
 <br>
 <a href="<%= company_vendors_path(@vendor.company) %>" class="waves-effect waves-light btn"><i class="material-icons left">navigate_before</i>back</a>
 </div>
