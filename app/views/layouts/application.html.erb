@@ -49,12 +49,12 @@
 <main>
 <% if notice %>
   <script type="text/javascript">
-    Materialize.toast('<%= notice %>', 2000, 'green lighten-1')
+  M.toast({html: '<%= notice %>', displayLength: 2000, classes: 'green lighten-1'})
   </script>
 <% end %>
 <% if alert %>
   <script type="text/javascript">
-    Materialize.toast('<%= alert %>', 4000, 'red lighten-1')
+    M.toast({html: '<%= alert %>', displayLength: 4000, classes: 'red lighten-1'})
   </script>
 <% end %>
 
