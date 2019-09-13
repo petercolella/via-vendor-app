@@ -180,7 +180,7 @@ DEPENDENCIES
   angular_rails_csrf
   byebug
   coffee-rails (~> 4.2)
-  devise
+  devise (>= 4.7.1)
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

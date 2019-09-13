@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'devise'
+gem "devise", ">= 4.7.1"
 gem 'angular_rails_csrf'
 gem 'materialize-sass'
 gem "sprockets", ">= 3.7.2"
