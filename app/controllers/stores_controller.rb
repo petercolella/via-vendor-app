@@ -1,6 +1,6 @@
 class StoresController < ApplicationController
 
-  before_filter :load_company
+  before_action :load_company
 
   def index
     @company = Company.find(params[:company_id])
